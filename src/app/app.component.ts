@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
 
 
 import * as Plot from '@observablehq/plot';
@@ -22,7 +21,7 @@ export class AppComponent implements AfterViewInit {
 
   chartRef: any;
 
-  constructor(private http: HttpClient) {
+  constructor() {
   }
 
   
@@ -81,16 +80,24 @@ export class AppComponent implements AfterViewInit {
       }];
 
     const svg = Plot.rectY(data1, Plot.binX({y: "count"}, {x: "Earnings", fill: "Listing", tip: true})).plot();
-
+  
+    //this works
     /*const svg = Plot.plot({
+      height: 200,
+      grid: true,
+      color: {legend: true},
+      x: { type: 'utc'},
       marks: [
-        Plot.rectY(this.data, Plot.binX({y: "count"}, {x: "weight", fy: "sex"})),
-        Plot.ruleY([0])
+        Plot.dot(data1, {x: "Date", y: "Earnings", stroke: "Listing",
+            tip: true
+          }),
+            
       ]
     })*/
-    
 
     this.chartRef.html(svg);
+
+
 
   }
 }

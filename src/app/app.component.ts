@@ -79,10 +79,10 @@ export class AppComponent implements AfterViewInit {
         "Nights": 1
       }];
 
-    //const svg = Plot.rectY(data1, Plot.binX({y: "count"}, {x: "Earnings", fill: "Listing", tip: true})).plot();
+    const svg = Plot.rectY(data1, Plot.binX({y: "count"}, {x: "Earnings", fill: "Listing", tip: true})).plot();
   
     //this works
-    const svg = Plot.plot({
+   /* const svg = Plot.plot({
       height: 200,
       grid: true,
       color: {legend: true},
@@ -93,7 +93,7 @@ export class AppComponent implements AfterViewInit {
           }),
             
       ]
-    })
+    })*/
     console.log(svg)
     this.chartRef.nativeElement.innerHTML = svg.innerHTML
 
